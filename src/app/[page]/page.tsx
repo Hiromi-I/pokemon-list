@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 
-import { getPokemonsData } from "@/app/utils/poke-api";
+import { getPokemonsData, getPokemonDetailData } from "@/app/utils/poke-api";
 
 type Params = {
     params: {
@@ -10,16 +10,18 @@ type Params = {
 
 
 export default async function Page( { params }: Params) {
-    const responseData = await getPokemonsData(params.page);
-
+    const pageData = await getPokemonsData(params.page);
+    const { results } = pageData;
+    const detailList = await Promise.all(results.map(result => getPokemonDetailData(result.url)));
+  
     return (
-        <main>
-            <h1>Pokemon</h1>
-            <Suspense fallback={<p>Loading...</p>}>
-            {res.results.map((d) => {
-                return (<div>{d.name}: {d.url}</div>)
-            })}
-            </Suspense>
-        </main>
+      <main>
+        <h1>Pokemon</h1>
+        <Suspense fallback={<p>Loading...</p>}>
+          {detailList.map((d) => {
+            return (<div>{d.id}: {d.name}</div>)
+          })}
+        </Suspense>
+      </main>
     )
-}
+  }
