@@ -19,7 +19,7 @@ export default async function Page( { params }: Params) {
         <h1>Pokemon</h1>
         <Suspense fallback={<p>Loading...</p>}>
           {detailList.map((d) => {
-            return (<div>{d.id}: {d.name}</div>)
+            return (<div key={d.id}>{d.id}: {d.name}</div>)
           })}
         </Suspense>
       </main>
