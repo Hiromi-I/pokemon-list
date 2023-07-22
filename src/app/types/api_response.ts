@@ -24,3 +24,13 @@ export type Pokemon_Detail_API_Response = {
         back_default: string,
     },
 };
+
+export type Pokemon_Species_API_Response = {
+    names: {
+        name: string,
+        language: {
+            name: string,
+            url: string,
+        },
+    }[],
+};
