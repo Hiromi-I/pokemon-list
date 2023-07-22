@@ -4,13 +4,14 @@ import { getPokemonsData, getPokemonDetailData } from "@/app/utils/poke-api";
 
 type Params = {
     params: {
-        page: number,
+        page: string,
     },
 };
 
 
 export default async function Page( { params }: Params) {
-    const pageData = await getPokemonsData(params.page);
+    const currentPage = parseInt(params.page);
+    const pageData = await getPokemonsData(currentPage);
     const { results } = pageData;
     const detailList = await Promise.all(results.map(result => getPokemonDetailData(result.url)));
   
