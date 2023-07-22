@@ -15,6 +15,10 @@ export type Pokemon_Detail_API_Response = {
     name: string,
     height: number,
     weight: number,
+    species: {
+        name: string,
+        url: string,
+    },
     sprites: {
         front_default: string,
         back_default: string,
