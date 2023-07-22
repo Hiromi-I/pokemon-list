@@ -24,7 +24,7 @@ export default async function Page( { params }: Params) {
             return (<div key={d.id}>{d.id}: {d.name}</div>)
           })}
         </Suspense>
-        <div>
+        <div className="flex gap-4 w-52 mx-auto mb-12">
           <PagingButton page={getPreviousPage(currentPage)}>previous</PagingButton>
           <PagingButton page={getNextPage(currentPage)}>next</PagingButton>
         </div>
