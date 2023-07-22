@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 
-import { getPokemonsData, getPokemonDetailData } from "@/app/utils/poke-api";
+import PagingButton from "../components/PagingButton";
+import { getPokemonsData, getPokemonDetailData, getPreviousPage, getNextPage } from "@/app/utils/poke-api";
 
 type Params = {
     params: {
@@ -14,7 +15,7 @@ export default async function Page( { params }: Params) {
     const pageData = await getPokemonsData(currentPage);
     const { results } = pageData;
     const detailList = await Promise.all(results.map(result => getPokemonDetailData(result.url)));
-  
+
     return (
       <main>
         <h1>Pokemon</h1>
@@ -23,6 +24,10 @@ export default async function Page( { params }: Params) {
             return (<div key={d.id}>{d.id}: {d.name}</div>)
           })}
         </Suspense>
+        <div>
+          <PagingButton page={getPreviousPage(currentPage)}>previous</PagingButton>
+          <PagingButton page={getNextPage(currentPage)}>next</PagingButton>
+        </div>
       </main>
     )
   }

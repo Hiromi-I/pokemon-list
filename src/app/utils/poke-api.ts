@@ -12,3 +12,13 @@ export const getPokemonDetailData = async (url: string) => {
     const response = await axios.get<Pokemon_Detail_API_Response>(url);
     return response.data;
 }
+
+export const getPreviousPage = (page: number) => {
+    if (page - 1 <= 0) return null;
+    return page - 1;
+}
+
+export const getNextPage = (page: number) => {
+    if (page + 1 > 64) return null; // 最終64ページ
+    return page + 1;
+}
