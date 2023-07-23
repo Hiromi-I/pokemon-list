@@ -22,6 +22,11 @@ export type Pokemon_Detail_API_Response = {
     sprites: {
         front_default: string,
         back_default: string,
+        other: {
+            "official-artwork": {
+                front_default: string,
+            },
+        },
     },
 };
 
