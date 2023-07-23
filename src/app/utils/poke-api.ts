@@ -11,6 +11,8 @@ export const getPokemonsData = async (page: number) => {
 export const getPokemonDetailData = async (url: string) => {
     const response = await axios.get<Pokemon_Detail_API_Response>(url);
     response.data.name = await getPokemonJapaneseName(response.data.species.url);
+    response.data.height /= 10; //decimetres to metres
+    response.data.weight /= 10; //hectograms to kilograms
     return response.data;
 }
 

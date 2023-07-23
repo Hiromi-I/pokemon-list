@@ -1,7 +1,6 @@
-import { Suspense } from "react";
-
 import PagingButton from "../components/PagingButton";
-import { getPokemonsData, getPokemonDetailData, getPreviousPage, getNextPage } from "@/app/utils/poke-api";
+import MonsterCard from "../components/MonsterCard";
+import { getPokemonsData, getPreviousPage, getNextPage } from "@/app/utils/poke-api";
 
 type Params = {
     params: {
@@ -12,18 +11,16 @@ type Params = {
 
 export default async function Page( { params }: Params) {
     const currentPage = parseInt(params.page);
-    const pageData = await getPokemonsData(currentPage);
-    const { results } = pageData;
-    const detailList = await Promise.all(results.map(result => getPokemonDetailData(result.url)));
+    const { results } = await getPokemonsData(currentPage);
 
     return (
       <main>
         <h1>Pokemon</h1>
-        <Suspense fallback={<p>Loading...</p>}>
-          {detailList.map((d) => {
-            return (<div key={d.id}>{d.id}: {d.name}</div>)
-          })}
-        </Suspense>
+        <ul className="grid grid-cols-5 gap-4 max-w-4xl mx-auto mb-12">
+            {results.map(result => {
+              return <MonsterCard key={result.name} url={result.url} />
+            })}
+          </ul>
         <div className="flex gap-4 w-52 mx-auto mb-12">
           <PagingButton page={getPreviousPage(currentPage)}>previous</PagingButton>
           <PagingButton page={getNextPage(currentPage)}>next</PagingButton>
