@@ -16,8 +16,8 @@ const AsyncMonsterCard = async (props: Props) => {
         <Image src={sprites.other["official-artwork"].front_default} alt={name} width={165} height={165} priority className="h-[165px] w-[165px]" />
       </div>
       <h2 className="font-bold mb-3 px-2">{name}</h2>
-      <p className="px-2">身長: {height}m</p>
-      <p className="px-2">体重: {weight}kg</p>
+      <p className="px-2">高さ: {height}m</p>
+      <p className="px-2">重さ: {weight}kg</p>
     </>
   );
 };
@@ -29,8 +29,8 @@ const SkeltonCard = () => {
         <Image src="/monster_ball.svg" alt="モンスターボール" width={70} height={70} priority className="h-[70px] w-[165px] animate-bounce" />
       </div>
       <h2 className="font-bold mb-3 px-2">Loading...</h2>
-      <p className="px-2">身長: -- m</p>
-      <p className="px-2">体重: -- kg</p>
+      <p className="px-2">高さ: -- m</p>
+      <p className="px-2">重さ: -- kg</p>
     </>
   )
 }
