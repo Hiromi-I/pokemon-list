@@ -1,7 +1,7 @@
 export type Pokemon_Basic_Info = {
     name: string,
     url: string,
-}
+};
 
 export type Pokemons_API_Response = {
     count: number,
@@ -42,27 +42,7 @@ export type Pokemon_Detail_API_Response = {
     }[],
 };
 
-export type Pokemon_Species_API_Response = {
-    names: {
-        name: string,
-        language: {
-            name: string,
-            url: string,
-        },
-    }[],
-};
-
-export type Pokemon_Types_API_Response = {
-    names: {
-        name: string,
-        language: {
-            name: string,
-            url: string,
-        },
-    }[],
-};
-
-export type Pokemon_Abilities_API_Response = {
+export type Pokemon_Named_API_Response = {
     names: {
         name: string,
         language: {

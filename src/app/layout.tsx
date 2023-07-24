@@ -1,13 +1,13 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import "./globals.css";
+import type { Metadata } from "next";
+import Image from "next/image";
+import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Pokemon Book',
-  description: 'Poke APIを利用したポケモンデータ図鑑',
+  title: "Pokemon Book",
+  description: "Poke APIを利用したポケモンデータ図鑑",
 }
 
 export default function RootLayout({
@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ja" className='bg-gradient-to-r from-cyan-200 to-blue-300'>
+    <html lang="ja" className="bg-gradient-to-r from-cyan-200 to-blue-300">
       <body className={inter.className}>
         <header className="bg-gradient-to-r from-gray-700 to-gray-500 mb-12">
           <h1 className="container mx-auto py-3">
