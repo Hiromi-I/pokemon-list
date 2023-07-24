@@ -14,16 +14,16 @@ export default async function Page( { params }: Params) {
     const { results } = await getPokemonsData(currentPage);
 
     return (
-      <>
-          <ul className="grid grid-cols-5 gap-4 mb-12">
-              {results.map(result => {
-                return <MonsterCard key={result.name} url={result.url} />
-              })}
-          </ul>
-          <div className="flex gap-4 w-52 mx-auto mb-12">
-              <PagingButton page={getPreviousPage(currentPage)}>previous</PagingButton>
-              <PagingButton page={getNextPage(currentPage)}>next</PagingButton>
-          </div>
-      </>
-    )
-  }
+        <>
+            <ul className="grid grid-cols-4 gap-4 mb-12">
+                {results.map(result => {
+                    return <MonsterCard key={result.name} url={result.url} />
+                })}
+            </ul>
+            <div className="flex gap-4 w-52 mx-auto mb-12">
+                <PagingButton page={getPreviousPage(currentPage)}>previous</PagingButton>
+                <PagingButton page={getNextPage(currentPage)}>next</PagingButton>
+            </div>
+        </>
+    );
+}

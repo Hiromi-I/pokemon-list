@@ -1,6 +1,7 @@
 import axios from "axios";
 
-import { Pokemons_API_Response, Pokemon_Detail_API_Response, Pokemon_Species_API_Response } from "../types/api_response";
+import { Pokemons_API_Response, Pokemon_Detail_API_Response, Pokemon_Species_API_Response, Pokemon_Types_API_Response, Pokemon_Abilities_API_Response } from "../types/api_response";
+import { MonsterData } from "@/app/types/monstar_data";
 
 export const getPokemonsData = async (page: number) => {
     const url = `https://pokeapi.co/api/v2/pokemon/?offset=${page * 20}&limit=20`;
@@ -10,15 +11,33 @@ export const getPokemonsData = async (page: number) => {
 
 export const getPokemonDetailData = async (url: string) => {
     const response = await axios.get<Pokemon_Detail_API_Response>(url);
-    response.data.name = await getPokemonJapaneseName(response.data.species.url);
-    response.data.height /= 10; //decimetres to metres
-    response.data.weight /= 10; //hectograms to kilograms
-    return response.data;
+    return {
+        id: response.data.id,
+        name: await getPokemonJapaneseName(response.data.species.url),
+        height: response.data.height / 10,
+        weight: response.data.weight / 10,
+        types: await getPokemonTypesJapaneseName(response.data.types.map(type => type.type.url)),
+        abilities: await getPokemonAbilitiesJapaneseName(response.data.abilities.map(ability => ability.ability.url)),
+        sprites: response.data.sprites,
+    } as MonsterData;
 }
 
 export const getPokemonJapaneseName = async (url: string) => {
     const response = await axios.get<Pokemon_Species_API_Response>(url);
     return response.data.names.find(name => name.language.name === "ja")!.name;
+}
+export const getPokemonTypesJapaneseName = async (urls: string[]) => {
+    return await Promise.all(urls.map(async (url) => {
+        const response = await axios.get<Pokemon_Types_API_Response>(url);
+        return response.data.names.find(name => name.language.name === "ja")!.name;
+    }));
+}
+
+export const getPokemonAbilitiesJapaneseName = async (urls: string[]) => {
+    return await Promise.all(urls.map(async (url) => {
+        const response = await axios.get<Pokemon_Abilities_API_Response>(url);
+        return response.data.names.find(name => name.language.name === "ja")!.name;
+    }));
 }
 
 export const getPreviousPage = (page: number) => {
