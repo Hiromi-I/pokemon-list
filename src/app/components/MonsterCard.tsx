@@ -75,8 +75,8 @@ const SkeltonCard = () => {
         </table>
       </div>
     </>
-  )
-}
+  );
+};
 
 const MonsterCard = (props: Props) => {
   return (

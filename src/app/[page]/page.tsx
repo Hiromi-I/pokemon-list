@@ -1,5 +1,5 @@
-import PagingButton from "../components/PagingButton";
-import MonsterCard from "../components/MonsterCard";
+import PagingButton from "@/app/components/PagingButton";
+import MonsterCard from "@/app/components/MonsterCard";
 import { getPokemonsData, getPreviousPage, getNextPage } from "@/app/utils/poke-api";
 
 type Params = {
@@ -7,7 +7,6 @@ type Params = {
         page: string,
     },
 };
-
 
 export default async function Page( { params }: Params) {
     const currentPage = parseInt(params.page);
