@@ -49,7 +49,7 @@ const SkeltonCard = () => {
   return (
     <>
       <div className="h-[171px] w-full mb-4 bg-gradient-to-b from-gray-200 to-gray-400 flex justify-center items-center">
-        <Image src="/monster_ball.svg" alt="モンスターボール" width={70} height={70} priority className="h-[70px] w-[165px] animate-bounce" />
+        <Image src="/monster_ball.svg" alt="モンスターボール" width={70} height={70} priority className="animate-bounce" />
       </div>
       <div className="p-3">
         <h2 className="font-bold mb-3">[No.--] Loading...</h2>
