@@ -34,6 +34,12 @@ export type Pokemon_Detail_API_Response = {
             url: string,
         },
     }[],
+    abilities: {
+        ability: {
+            name: string,
+            url: string,
+        },
+    }[],
 };
 
 export type Pokemon_Species_API_Response = {
@@ -47,6 +53,16 @@ export type Pokemon_Species_API_Response = {
 };
 
 export type Pokemon_Types_API_Response = {
+    names: {
+        name: string,
+        language: {
+            name: string,
+            url: string,
+        },
+    }[],
+};
+
+export type Pokemon_Abilities_API_Response = {
     names: {
         name: string,
         language: {
