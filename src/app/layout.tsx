@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ja" className=' bg-gradient-to-r from-cyan-200 to-blue-300'>
+    <html lang="ja" className='bg-gradient-to-r from-cyan-200 to-blue-300'>
       <body className={inter.className}>
         <header className="bg-gradient-to-r from-gray-700 to-gray-500 mb-12">
           <h1 className="container mx-auto py-3">
