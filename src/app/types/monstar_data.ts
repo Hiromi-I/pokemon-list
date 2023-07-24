@@ -1,4 +1,5 @@
 export type MonsterData = {
+  id: number,
   name: string,
   en_name: string,
   height: number,

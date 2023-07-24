@@ -8,7 +8,7 @@ type Props = {
 };
 
 const AsyncMonsterCard = async (props: Props) => {
-  const { name, height, weight, sprites, types, abilities } = await getPokemonDetailData(props.url);
+  const { id, name, height, weight, sprites, types, abilities } = await getPokemonDetailData(props.url);
 
   return (
     <>
