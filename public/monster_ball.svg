@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300px" height="300px" viewBox="0 0 300 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="125" cy="125" r="125"></circle>
+        <path d="M-7.67441666e-15,132.000019 C2.11202966,199.184465 57.2399752,253 124.937212,253 C192.63445,253 247.762395,199.184465 249.874425,132.000019 L-6.06773513e-07,132 Z" id="path-2"></path>
+        <circle id="path-3" cx="125" cy="131" r="40"></circle>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-2">
+            <g id="Group" transform="translate(25.000000, 24.000000)">
+                <g id="Oval">
+                    <use fill="#FF0000" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    <circle stroke="#000000" stroke-width="4" cx="125" cy="125" r="123"></circle>
+                </g>
+                <g id="Combined-Shape">
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-2"></use>
+                    <path stroke="#000000" stroke-width="4" d="M2.08092696,134.000019 C5.21454973,199.287546 59.1639538,251 124.937212,251 C190.710471,251 244.659875,199.287546 247.793498,134.000019 L2.08092696,134.000019 Z"></path>
+                </g>
+                <g id="Oval-2">
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-3"></use>
+                    <circle stroke="#000000" stroke-width="4" cx="125" cy="131" r="38"></circle>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
