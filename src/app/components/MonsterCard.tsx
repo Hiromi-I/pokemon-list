@@ -8,7 +8,7 @@ type Props = {
 };
 
 const AsyncMonsterCard = async (props: Props) => {
-  const { name, height, weight, sprites } = await getPokemonDetailData(props.url);
+  const { name, height, weight, sprites, types, abilities } = await getPokemonDetailData(props.url);
 
   return (
     <>
@@ -18,6 +18,8 @@ const AsyncMonsterCard = async (props: Props) => {
       <h2 className="font-bold mb-3 px-2">{name}</h2>
       <p className="px-2">高さ: {height}m</p>
       <p className="px-2">重さ: {weight}kg</p>
+      <p className="px-2">タイプ: {types.join(" / ")}</p>
+      <p className="px-2">能力: {abilities.join(" / ")}</p>
     </>
   );
 };
@@ -37,7 +39,7 @@ const SkeltonCard = () => {
 
 const MonsterCard = (props: Props) => {
   return (
-    <li className="bg-gray-100 text-black text-sm rounded-lg h-[270px] drop-shadow-md overflow-hidden">
+    <li className="bg-gray-100 text-black text-sm rounded-lg h-[360px] drop-shadow-md overflow-hidden">
       <Suspense fallback={<SkeltonCard />}>
         <AsyncMonsterCard url={props.url} />
       </Suspense>
