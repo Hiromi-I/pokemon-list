@@ -28,9 +28,25 @@ export type Pokemon_Detail_API_Response = {
             },
         },
     },
+    types: {
+        type: {
+            name: string,
+            url: string,
+        },
+    }[],
 };
 
 export type Pokemon_Species_API_Response = {
+    names: {
+        name: string,
+        language: {
+            name: string,
+            url: string,
+        },
+    }[],
+};
+
+export type Pokemon_Types_API_Response = {
     names: {
         name: string,
         language: {
