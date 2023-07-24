@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { Pokemons_API_Response, Pokemon_Detail_API_Response, Pokemon_Species_API_Response, Pokemon_Types_API_Response, Pokemon_Abilities_API_Response } from "../types/api_response";
+import { Pokemons_API_Response, Pokemon_Detail_API_Response, Pokemon_Named_API_Response } from "../types/api_response";
 import { MonsterData } from "@/app/types/monstar_data";
 
 export const getPokemonsData = async (page: number) => {
@@ -23,19 +23,19 @@ export const getPokemonDetailData = async (url: string) => {
 }
 
 export const getPokemonJapaneseName = async (url: string) => {
-    const response = await axios.get<Pokemon_Species_API_Response>(url);
+    const response = await axios.get<Pokemon_Named_API_Response>(url);
     return response.data.names.find(name => name.language.name === "ja")!.name;
 }
 export const getPokemonTypesJapaneseName = async (urls: string[]) => {
     return await Promise.all(urls.map(async (url) => {
-        const response = await axios.get<Pokemon_Types_API_Response>(url);
+        const response = await axios.get<Pokemon_Named_API_Response>(url);
         return response.data.names.find(name => name.language.name === "ja")!.name;
     }));
 }
 
 export const getPokemonAbilitiesJapaneseName = async (urls: string[]) => {
     return await Promise.all(urls.map(async (url) => {
-        const response = await axios.get<Pokemon_Abilities_API_Response>(url);
+        const response = await axios.get<Pokemon_Named_API_Response>(url);
         return response.data.names.find(name => name.language.name === "ja")!.name;
     }));
 }
