@@ -23,7 +23,6 @@ const AsyncMonsterCard = async (props: Props) => {
           width={165}
           height={165}
           priority
-          className="h-[165px] w-[165px]"
         /> :
         <Image
           src="/monster404.png"
@@ -31,7 +30,6 @@ const AsyncMonsterCard = async (props: Props) => {
           width={165}
           height={165}
           priority
-          className="h-[165px] w-[165px]"
         />
       }
       </div>
