@@ -23,7 +23,6 @@ const AsyncMonsterCard = async (props: Props) => {
           width={165}
           height={165}
           priority
-          className="h-[165px] w-[165px]"
         /> :
         <Image
           src="/monster404.png"
@@ -31,7 +30,6 @@ const AsyncMonsterCard = async (props: Props) => {
           width={165}
           height={165}
           priority
-          className="h-[165px] w-[165px]"
         />
       }
       </div>
@@ -97,7 +95,7 @@ const SkeltonCard = () => {
 
 const MonsterCard = (props: Props) => {
   return (
-    <li className="bg-gray-100 text-black text-sm rounded-lg h-[380px] drop-shadow-md overflow-hidden">
+    <li className="bg-gray-100 text-black text-sm rounded-lg drop-shadow-md overflow-hidden">
       <Suspense fallback={<SkeltonCard />}>
         <AsyncMonsterCard url={props.url} />
       </Suspense>
