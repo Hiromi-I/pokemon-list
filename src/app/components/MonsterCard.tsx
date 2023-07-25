@@ -97,7 +97,7 @@ const SkeltonCard = () => {
 
 const MonsterCard = (props: Props) => {
   return (
-    <li className="bg-gray-100 text-black text-sm rounded-lg h-[380px] drop-shadow-md overflow-hidden">
+    <li className="bg-gray-100 text-black text-sm rounded-lg drop-shadow-md overflow-hidden">
       <Suspense fallback={<SkeltonCard />}>
         <AsyncMonsterCard url={props.url} />
       </Suspense>
