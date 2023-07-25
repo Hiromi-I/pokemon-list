@@ -1,6 +1,7 @@
 import PagingButton from "@/app/components/PagingButton";
 import MonsterCard from "@/app/components/MonsterCard";
 import { getPokemonsData, getPreviousPage, getNextPage } from "@/app/utils/poke-api";
+import styles from "./page.module.css"
 
 type Params = {
     params: {
@@ -14,7 +15,7 @@ export default async function Page( { params }: Params) {
 
     return (
         <>
-            <ul className="grid grid-cols-4 gap-4 mb-12">
+            <ul className={styles.cardContainer}>
                 {results.map(result => {
                     return <MonsterCard key={result.name} url={result.url} />
                 })}
