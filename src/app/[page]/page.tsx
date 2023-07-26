@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+
 import PagingButton from "@/app/components/PagingButton";
 import MonsterCard from "@/app/components/MonsterCard";
 import { getPokemonsData, getPreviousPage, getNextPage } from "@/app/utils/poke-api";
@@ -11,6 +13,7 @@ type Params = {
 
 export default async function Page( { params }: Params) {
     const currentPage = parseInt(params.page);
+    if (currentPage < 1 || 65 < currentPage) notFound();
     const { results } = await getPokemonsData(currentPage);
 
     return (
