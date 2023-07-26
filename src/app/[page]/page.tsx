@@ -19,8 +19,8 @@ export default async function Page( { params }: Params) {
     return (
         <>
             <ul className={styles.cardContainer}>
-                {results.map(result => {
-                    return <MonsterCard key={result.url} url={result.url} />
+                {results.map((result, index) => {
+                    return <MonsterCard key={result.url} index={index} url={result.url} />
                 })}
             </ul>
             <div className="flex gap-4 w-52 mx-auto mb-12">
