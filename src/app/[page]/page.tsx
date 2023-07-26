@@ -21,8 +21,8 @@ export default async function Page( { params }: Params) {
                 })}
             </ul>
             <div className="flex gap-4 w-52 mx-auto mb-12">
-                <PagingButton page={getPreviousPage(currentPage)}>previous</PagingButton>
-                <PagingButton page={getNextPage(currentPage)}>next</PagingButton>
+                <PagingButton page={getPreviousPage(currentPage)}>前のページ</PagingButton>
+                <PagingButton page={getNextPage(currentPage)}>次のページ</PagingButton>
             </div>
         </>
     );
