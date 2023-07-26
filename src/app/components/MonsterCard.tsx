@@ -8,6 +8,7 @@ import MonsterDataLabel from "@/app/components/MonsterDataLabel";
 
 type Props = {
   url: string,
+  index: number,
 };
 
 const AsyncMonsterCard = async (props: Props) => {
@@ -22,14 +23,14 @@ const AsyncMonsterCard = async (props: Props) => {
           alt={name}
           width={165}
           height={165}
-          priority
+          priority={props.index <= 11}
         /> :
         <Image
           src="/monster404.png"
           alt="Not Found"
           width={165}
           height={165}
-          priority
+          priority={props.index <= 11}
         />
       }
       </div>
@@ -60,11 +61,11 @@ const AsyncMonsterCard = async (props: Props) => {
   );
 };
 
-const SkeltonCard = () => {
+const SkeltonCard = (props: Props) => {
   return (
     <>
       <div className="h-[171px] w-full mb-4 bg-gradient-to-b from-gray-200 to-gray-400 flex justify-center items-center">
-        <Image src="/monster_ball.svg" alt="モンスターボール" width={70} height={70} priority className="animate-bounce" />
+        <Image src="/monster_ball.svg" alt="モンスターボール" width={70} height={70} priority={props.index <= 11} className="animate-bounce" />
       </div>
       <div className="p-3">
         <h2 className="font-bold mb-3">[No.--] Loading...</h2>
@@ -96,8 +97,8 @@ const SkeltonCard = () => {
 const MonsterCard = (props: Props) => {
   return (
     <li className="bg-gray-100 text-black text-sm rounded-lg drop-shadow-md overflow-hidden">
-      <Suspense fallback={<SkeltonCard />}>
-        <AsyncMonsterCard url={props.url} />
+      <Suspense fallback={<SkeltonCard {...props} />}>
+        <AsyncMonsterCard {...props} />
       </Suspense>
     </li>
   );
