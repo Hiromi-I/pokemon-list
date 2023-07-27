@@ -13,6 +13,7 @@ type Props = {
 
 const AsyncMonsterCard = async (props: Props) => {
     const { id, name, height, weight, sprites, types, abilities } = await getPokemonDetailData(props.url);
+    const filteredAbilities = abilities.filter((item, index) => abilities.indexOf(item) === index);
 
     return (
         <>
@@ -52,7 +53,7 @@ const AsyncMonsterCard = async (props: Props) => {
                         </tr>
                         <tr>
                             <th className="align-top"><MonsterDataLabel title="特性" /></th>
-                            <td><AbilityLabels abilities={abilities} /></td>
+                            <td><AbilityLabels abilities={filteredAbilities} /></td>
                         </tr>
                     </tbody>
                 </table>
