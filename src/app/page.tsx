@@ -13,9 +13,9 @@ export default async function Home() {
             <h1>Pokemon</h1>
             <Suspense fallback={<p>Loading...</p>}>
                 {detailList.map((d) => {
-                    return (<div key={d.id}>{d.id}: {d.name}</div>)
+                    return (<div key={d.id}>{d.id}: {d.name}</div>);
                 })}
             </Suspense>
         </main>
-    )
+    );
 }

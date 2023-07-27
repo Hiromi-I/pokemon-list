@@ -7,7 +7,7 @@ type Props = {
 };
 
 const PagingButton = (props: Props) => {
-    const baseStyle = "flex justify-center items-center w-24 h-10 rounded-lg"
+    const baseStyle = "flex justify-center items-center w-24 h-10 rounded-lg";
     if (props.page === null) {
         return (<button className={`${baseStyle} text-black bg-gray-300 cursor-auto`}>{props.children}</button>);
     } else {
