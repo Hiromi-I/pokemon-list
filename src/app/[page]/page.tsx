@@ -11,7 +11,7 @@ type Params = {
     },
 };
 
-export default async function Page( { params }: Params) {
+export default async function Page({ params }: Params) {
     const currentPage = parseInt(params.page);
     if (currentPage < 1 || 65 < currentPage) notFound();
     const { results } = await getPokemonsData(currentPage);
